@@ -3,6 +3,8 @@ import json
 import os
 import pyperclip
 
+# Set page configuration
+st.set_page_config(page_title="My Favorite", page_icon="🌐", layout="wide")
 
 # Function to read data from JSON file
 def read_data():
@@ -22,7 +24,7 @@ def write_data(data):
 # Create a Streamlit app
 def app():
     # Set the title of the app
-    st.title('Favorite Website')
+    st.markdown("<h1 style='text-align: center;'>Favorite Website</h1>", unsafe_allow_html=True)
     # Read data from JSON file
     data = read_data()
 
@@ -46,11 +48,18 @@ def app():
             data[group].append({'website': website, 'link': link})
             # Write the updated data to the JSON file
             write_data(data)
-
+        
+        # Add a download button to download the data.json file
+        st.sidebar.download_button(
+            label='Download data',
+            data=json.dumps(data),
+            file_name='data.json',
+            mime='application/json'
+        )
     
 
     # Display the data in a horizontal way
-    max_columns = 7
+    max_columns = 9
     for group in data:
         st.header(group)
         website_links = data[group]
