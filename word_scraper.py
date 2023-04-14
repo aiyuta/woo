@@ -10,6 +10,7 @@ import json
 
 st.markdown("<h1 style='text-align:center;'> WORD Scraper </h1>", unsafe_allow_html=True)
 
+
 audio_bytes =audio_recorder(text=' ',pause_threshold=3)
 if audio_bytes:
     st.audio(audio_bytes,format='audio/wav')
@@ -47,9 +48,9 @@ def prounc(search_keyword):
 if search:
     # Display the audio and images
     link = prounc(keyword)
-    col1, col2 = st.columns([1, 2])
-    with col1:
-        st.audio(link, format='audio/mp3')
+    col1, col2 = st.columns([2, 2])
+    with col1:     
+        st.audio(link, format='audio/mp3')        
         page_img = requests.get(f"https://unsplash.com/s/photos/{keyword}")
         soup = BeautifulSoup(page_img.content, 'lxml')
         rows = soup.find_all("div", class_='ripi6')
