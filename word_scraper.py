@@ -103,7 +103,7 @@ if search:
         ai.api_key= api_key
         len_keyword = keyword.split()
         if len(len_keyword) == 1:
-            lookup = "You are a kind helpful dictionary assistant.return me with the phonetic, explanation ,root and 5 sentences"
+            lookup = "You are a kind helpful dictionary assistant.return me with the phonetic, explanation ,root and 5 sentences,the keyword"
             #response =  gen_chatgpt_response(keyword,lookup)
             response =openroute(lookup,keyword)
             
