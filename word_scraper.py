@@ -117,7 +117,7 @@ if search:
             data = json.load(f)    
         now = datetime.datetime.now()
         time_str = now.strftime("%Y-%m-%d %H:%M:%S")    
-        data[time_str] = keyword+"\n"+response
+        data[keyword] =response
         
         with open("word_data.json", "w") as f:
             json.dump(data, f, indent=4)
