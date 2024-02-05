@@ -121,7 +121,7 @@ if search:
             sentencing  = "please provide 10 sentences base on the key words"
             #response =  gen_chatgpt_response(keyword,sentencing)
             #response =openroute(sentencing,keyword)
-            respone = gemini(sentencing + ":" + keyword)
+            response = gemini(sentencing + ":" + keyword)
         st.write(response)   
         # Add the text box value to the data dictionary with the current time as the key
         with open("word_data.json") as f: 
