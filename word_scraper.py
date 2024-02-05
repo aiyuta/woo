@@ -60,7 +60,7 @@ def prounc(search_keyword):
             audio_url = match.group(1)
         return audio_url
     except Exception as e:
-        st.write("API problem!")
+        pass
 
 
 st.markdown("<h1 style='text-align:center;'> WORD Scraper </h1>", unsafe_allow_html=True)
@@ -125,7 +125,7 @@ if search:
         with open("word_data.json", "w") as f:
             json.dump(data, f, indent=4)
     except:
-        pass
+        st.write("API problem!")
     
     # Display the images
     col1, col2 = st.columns([2, 2])
