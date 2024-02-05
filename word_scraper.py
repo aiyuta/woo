@@ -7,6 +7,7 @@ import datetime
 import json
 import openai as ai
 from openai import OpenAI
+import google.generativeai as genai
 
 @st.cache_data(show_spinner=False)
 def gen_chatgpt_response(user_text,road):
@@ -105,12 +106,14 @@ if search:
         if len(len_keyword) == 1:
             lookup = "You are a kind helpful dictionary assistant.return me with the phonetic, explanation ,root and 5 sentences,the keyword"
             #response =  gen_chatgpt_response(keyword,lookup)
-            response =openroute(lookup,keyword)
+            #response =openroute(lookup,keyword)
+            response = gemini(lookup +":" + keyword)
             
         else:
             sentencing  = "please provide 10 sentences base on the key words"
             #response =  gen_chatgpt_response(keyword,sentencing)
-            response =openroute(sentencing,keyword)
+            #response =openroute(sentencing,keyword)
+            respone = gemini(sentencing + ":" + keyword)
         st.write(response)   
         # Add the text box value to the data dictionary with the current time as the key
         with open("word_data.json") as f: 
