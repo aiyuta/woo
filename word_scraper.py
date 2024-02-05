@@ -60,7 +60,7 @@ def prounc(search_keyword):
             audio_url = match.group(1)
         return audio_url
     except Exception as e:
-        pass
+        st.write("API problem!")
 
 
 st.markdown("<h1 style='text-align:center;'> WORD Scraper </h1>", unsafe_allow_html=True)
