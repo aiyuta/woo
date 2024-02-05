@@ -10,6 +10,14 @@ from openai import OpenAI
 import google.generativeai as genai
 
 @st.cache_data(show_spinner=False)
+def gemini(input):
+
+    genai.configure(api_key="AIzaSyAbPr_KmwtP7tBU2nsIc1Jve4qZDTJJlWk")
+    model = genai.GenerativeModel('gemini-pro')
+    response = model.generate_content(input)
+    
+    return response.text
+
 def gen_chatgpt_response(user_text,road):
     Model = 'gpt-3.5-turbo'
     completion = ai.ChatCompletion.create(
