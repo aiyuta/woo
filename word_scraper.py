@@ -55,7 +55,17 @@ def openroute(usertext,road):
             ],
     )
     return(completion.choices[0].message.content)
-    
+def deepseek(usertext,road):
+    client = OpenAI(api_key = 'sk-824baeab952b43a4be4ce96173baf807', base_url="https://api.deepseek.com/v1")
+
+    response = client.chat.completions.create(
+        model="deepseek-chat",
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant"},
+            {"role": "user", "content": usertext +":" + road},
+        ]
+    )
+    return response.choices[0].message.content
 
 def prounc(search_keyword):
     try:
@@ -115,13 +125,19 @@ if search:
             lookup = "You are a kind helpful dictionary assistant.return me with the phonetic, explanation ,root and 5 sentences,the keyword"
             #response =  gen_chatgpt_response(keyword,lookup)
             #response =openroute(lookup,keyword)
-            response = gemini(lookup +":" + keyword)
+            try:
+                response = gemini(lookup +":" + keyword)
+            except:
+                response =deepseek(lookup,keyword)
             
         else:
             sentencing  = "please provide 10 sentences base on the key words"
             #response =  gen_chatgpt_response(keyword,sentencing)
             #response =openroute(sentencing,keyword)
-            response = gemini(sentencing + ":" + keyword)
+            try:
+                response = gemini(sentencing + ":" + keyword)
+            except:
+                response =deepseek(lookup,keyword)
         st.write(response)   
         # Add the text box value to the data dictionary with the current time as the key
         with open("word_data.json") as f: 
