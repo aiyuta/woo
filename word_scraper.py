@@ -13,7 +13,7 @@ import google.generativeai as genai
 def gemini(input):
 
     genai.configure(api_key="AIzaSyAbPr_KmwtP7tBU2nsIc1Jve4qZDTJJlWk")
-    model = genai.GenerativeModel('gemini-pro')
+    model = genai.GenerativeModel('gemini-1.0-pro-latest')
     response = model.generate_content(input)
     
     return response.text
