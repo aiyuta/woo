@@ -128,9 +128,9 @@ if search:
                 len_keyword = keyword.split()
                 
                 if len(len_keyword) == 1:
-                    lookup = "You are a kind helpful dictionary assistant.return me with the phonetic, explanation ,root and 5 sentences,display them with breakline"  
+                    lookup = "You are a kind helpful dictionary assistant.return me with the phonetic, explanation ,root and 5 sentences,display them with a breakline"  
                 else:
-                    lookup  = "please provide 10 sentences based on the key words"
+                    lookup  = "please explain and provide 10 sentences based on the key words, display with a breakline "
                 
                 #response =  chatgpt(keyword,lookup)
                 
