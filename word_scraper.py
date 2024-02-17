@@ -222,7 +222,15 @@ def get_random_keys():
 
 
 note_dolo_to_json()
-if st.sidebar.button("Get Random Keys"):
+if st.sidebar.button("Random learning"):
     keys = get_random_keys()
-    
     st.write(keys)
+    prompt = "create a paragraph based on the keywords provided directly, no any comments:"
+    try:
+        paragraph = gemini(prompt + ":" + keys)
+        st.write("generate by gemini")
+    except:
+        paragraph =deepseek(prompt,keyword)
+        st.write("generate by deepseek")
+                 
+    st.write(paragraph)
