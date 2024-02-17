@@ -214,8 +214,12 @@ def note_dolo_to_json():
 def get_random_keys():
     with open("word_data.json") as f:
         data = json.load(f)
-        
+
     keys = list(data.keys())
+    
+    # Filter to only single word keys
+    keys = [k for k in keys if len(k.split()) == 1] 
+
     random_keys = random.sample(keys, 5)
     return ",".join(random_keys)
 
