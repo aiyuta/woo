@@ -8,6 +8,7 @@ import json
 import openai as ai
 from openai import OpenAI
 import google.generativeai as genai
+import random
 
 @st.cache_data(show_spinner=False)
 def gemini(input):
@@ -210,5 +211,18 @@ def note_dolo_to_json():
         file_name="word_data.json",
         mime="application/json",
     )
+def get_random_keys():
+    with open("word_data.json") as f:
+        data = json.load(f)
+        
+    keys = list(data.keys())
+    random_keys = random.sample(keys, 5)
+    return ",".join(random_keys)
+
+
 
 note_dolo_to_json()
+if st.sidebar.button("Get Random Keys"):
+    keys = get_random_keys()
+    
+    st.write(keys)
