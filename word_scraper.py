@@ -112,7 +112,7 @@ if search:
 
     # Display the audio 
     link = prounc(keyword)
-    col3, col4，col7 = st.columns([3, 2, 2])
+    col3, col4,col7 = st.columns([3, 2, 2])
     with col3:
         st.audio(link, format='audio/mp3')  
     with col4:
