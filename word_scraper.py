@@ -109,8 +109,8 @@ with open("word_data.json") as f:
   data = json.load(f)      
   if keyword in data:
     delete_button = st.button("Delete")
-    if delete_button:
-      del data[keyword]
+    if delete_button:      
+      data.pop(keyword)
       
 if search:   
     # Display the audio 
