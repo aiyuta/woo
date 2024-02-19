@@ -110,8 +110,8 @@ with open("word_data.json") as f:
   if keyword in data:
     delete_button = st.button("Delete")
     if delete_button:
-      # del data[keyword]
-      st.write("delete")
+      del data[keyword]
+      
 if search:   
     # Display the audio 
     link = prounc(keyword)
