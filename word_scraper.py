@@ -80,6 +80,21 @@ def prounc(search_keyword):
         return audio_url
     except Exception as e:
         pass
+def get_random_keys():
+    with open("word_data.json") as f:
+        data = json.load(f)
+
+    keys = list(data.keys())
+    
+    # Filter to only single word keys
+    keys = [k for k in keys if len(k.split()) == 1] 
+
+    random_keys = random.sample(keys, 5)
+    return ",".join(random_keys)
+
+
+
+
 
 st.markdown("<h1 style='text-align:center;'> WORD Scraper </h1>", unsafe_allow_html=True)
 api_key = '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'
@@ -225,17 +240,6 @@ def note_dolo_to_json():
         file_name="word_data.json",
         mime="application/json",
     )
-def get_random_keys():
-    with open("word_data.json") as f:
-        data = json.load(f)
-
-    keys = list(data.keys())
-    
-    # Filter to only single word keys
-    keys = [k for k in keys if len(k.split()) == 1] 
-
-    random_keys = random.sample(keys, 5)
-    return ",".join(random_keys)
 
 
 
