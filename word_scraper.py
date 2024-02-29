@@ -175,6 +175,23 @@ def generate_paragraph_randomly():
     st.write(keys)             
     st.write(paragraph)
 
+def delete_keyword(file_path: str, keyword: str) -> None:
+    if not os.path.exists(file_path):
+        raise FileNotFoundError(f"File {file_path} not found.")
+    
+    with open(file_path, "r") as f:
+        data: Dict[str, any] = json.load(f)
+        
+    if keyword not in data:
+        raise KeyError(f"Keyword '{keyword}' not found in data.")
+    
+    delete_button = st.button("Delete")
+    if delete_button:
+        del data[keyword]
+        
+    with open(file_path, "w") as f:
+        json.dump(data, f, indent=4)
+
 
 st.markdown("<h1 style='text-align:center;'> WORD Scraper </h1>", unsafe_allow_html=True)
 # record and play
@@ -199,14 +216,11 @@ with st.form("Search"):
         """
         placeholder = st.empty()
         st.components.v1.html(html_code, height=600)
-with open("word_data.json") as f:
-  data = json.load(f)      
-  if keyword in data:
-    delete_button = st.button("Delete")
-    if delete_button:      
-      data.pop(keyword)
-    with open("word_data.json", "w") as f:
-            json.dump(data, f, indent=4)  
+try:
+    delete_keyword('word_data.json', keyword)
+except Exception as e:
+    st.error(str(e))
+
 if search:   
     if keyword[0] == ',':
         keyword = keyword[1:]
