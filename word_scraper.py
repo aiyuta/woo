@@ -9,6 +9,7 @@ import openai as ai
 from openai import OpenAI
 import google.generativeai as genai
 import random
+import os
 
 @st.cache_data(show_spinner=False)
 def gemini(input):
