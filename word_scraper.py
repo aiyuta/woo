@@ -288,7 +288,7 @@ if search:
             except:
                 pass
 # random learning
-if st.button("Random learning"):
+if st.button("Random_learning"):
     generate_paragraph_randomly()
 
 
