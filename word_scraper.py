@@ -247,7 +247,7 @@ if search:
                 if keyword in data:
                     st.write(data[keyword])
                 else:
-                    ai.api_key= api_key
+                    
                     len_keyword = keyword.split()
                     
                     if len(len_keyword) == 1:
