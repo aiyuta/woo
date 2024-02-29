@@ -90,7 +90,7 @@ def get_random_keys():
     keys = [k for k in keys if len(k.split()) == 1] 
 
     random_keys = random.sample(keys, 5)
-    return ",".join(random_keys)
+    return " ".join(random_keys)
 
 
 
