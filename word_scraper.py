@@ -181,10 +181,8 @@ def delete_keyword(file_path: str, keyword: str) -> None:
         raise FileNotFoundError(f"File {file_path} not found.")
     
     with open(file_path, "r") as f:
-        data: Dict[str, any] = json.load(f)
-        
-    if keyword not in data:
-        raise KeyError(f"Keyword '{keyword}' not found in data.")
+        data: Dict[str, any] = json.load(f)       
+   
     
     delete_button = st.button("Delete")
     if delete_button:
