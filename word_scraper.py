@@ -305,9 +305,9 @@ if search:
             soup = BeautifulSoup(page_img.content, 'lxml')
             rows = soup.find_all("img", class_='ApbSI vkrMA')
             
-            try:
-                for row in rows:
-                    
+            for i, row in enumerate(rows):
+                # Check if the row order is 1, 3, or 5
+                if (i + 1) % 2 != 0:
                     list = row["src"]
                     st.image(list)
             except:
@@ -315,14 +315,13 @@ if search:
         with col2:        
             page_img = requests.get(f"https://unsplash.com/s/photos/{keyword}")
             soup = BeautifulSoup(page_img.content, 'lxml')
-            rows = soup.find_all("div", class_='ripi6')
+            rows = soup.find_all("img", class_='ApbSI vkrMA')
             
-            try:
-                for row in rows:
-                    figures = row.find_all('figure')
-                    img = figures[1].find('img', class_="tB6UZ a5VGX")
-                    list = img["srcset"].split("?")
-                    st.image(list[0])
+            for i, row in enumerate(rows):
+                # Check if the row order is 1, 3, or 5
+                if (i + 1) % 2 != 1:
+                    list = row["src"]
+                    st.image(list)
             except:
                 pass
 # random learning
