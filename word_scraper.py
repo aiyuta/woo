@@ -237,10 +237,25 @@ with st.form("Search"):
         """
         placeholder = st.empty()
         st.components.v1.html(html_code, height=600)
-try:
-    delete_keyword('word_data.json', keyword)
-except Exception as e:
-    st.error(str(e))
+
+col_del, col_mem = st.columns([2, 2])
+with col_dele:
+    try:
+        delete_keyword('word_data.json', keyword)
+    except Exception as e:
+        st.error(str(e))
+with col_mem:
+    try:
+        res = groq("help me memorize the word:" + keyword)
+        
+    
+    memorize_button = st.button("memorize")
+    if memorize_button:
+        st.write(response)
+
+
+
+
 
 if search:   
     if keyword[0] == ',':
