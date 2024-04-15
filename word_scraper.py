@@ -239,7 +239,7 @@ with st.form("Search"):
         st.components.v1.html(html_code, height=600)
 
 col_del, col_mem = st.columns([2, 2])
-with col_dele:
+with col_del:
     try:
         delete_keyword('word_data.json', keyword)
     except Exception as e:
