@@ -246,9 +246,12 @@ with col_del:
         st.error(str(e))
 with col_mem:
     memorize_button = st.button("memorize")
-    if memorize_button:
-        try:
-            res = groq("help me memorize the word:" + keyword)
+    try:
+        res = groq("help me memorize the word:" + keyword)
+    except:
+        pass
+if memorize_button:
+        try:          
             
             st.write(res)
         except :
