@@ -245,13 +245,16 @@ with col_dele:
     except Exception as e:
         st.error(str(e))
 with col_mem:
-    try:
-        res = groq("help me memorize the word:" + keyword)
-        
-    
     memorize_button = st.button("memorize")
     if memorize_button:
-        st.write(response)
+        try:
+            res = groq("help me memorize the word:" + keyword)
+            
+            st.write(res)
+        except :
+            pass
+    
+    
 
 
 
