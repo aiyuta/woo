@@ -339,7 +339,7 @@ if search:
             page_img = requests.get(f"https://unsplash.com/s/photos/{keyword}")
             soup = BeautifulSoup(page_img.content, 'lxml')
             rows = soup.find_all("img", class_='ApbSI vkrMA')
-            rows =list(set(rows))
+            
             try:
                 for i, row in enumerate(rows):
                     # Check if the row order is 1, 3, or 5
