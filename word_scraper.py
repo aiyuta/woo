@@ -330,6 +330,7 @@ if search:
                     # Check if the row order is 1, 3, or 5
                     if (i + 1) % 2 != 0:
                         list = row["src"]
+                        list = list(set(list))
                         st.image(list)
             except:
                 pass
@@ -342,6 +343,7 @@ if search:
                     # Check if the row order is 1, 3, or 5
                     if (i + 1) % 2 != 1:
                         list = row["src"]
+                        list = list(set(list))
                         st.image(list)
             except:
                 pass
