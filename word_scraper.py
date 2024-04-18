@@ -326,7 +326,7 @@ if search:
                 page_img = requests.get(f"https://unsplash.com/s/photos/{keyword}")
                 soup = BeautifulSoup(page_img.content, 'lxml')
                 rows = soup.find_all("img", class_='ApbSI vkrMA')
-                rows =list(set(rows))
+                
                 src_list = [row["src"] for row in rows]
                 unique_list = []
                 for item in src_list:
@@ -344,7 +344,7 @@ if search:
                 page_img = requests.get(f"https://unsplash.com/s/photos/{keyword}")
                 soup = BeautifulSoup(page_img.content, 'lxml')
                 rows = soup.find_all("img", class_='ApbSI vkrMA')
-                rows =list(set(rows))
+                
                 src_list = [row["src"] for row in rows]
                 unique_list = []
                 for item in src_list:
