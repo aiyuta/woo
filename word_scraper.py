@@ -333,7 +333,7 @@ if search:
                     if item not in unique_list:
                         unique_list.append(item)           
             
-                for i, row in enumerate(unique_list):
+                for i, list in enumerate(unique_list):
                     # Check if the row order is 1, 3, or 5
                     if (i + 1) % 2 != 0:                       
                         st.image(list)
@@ -351,7 +351,7 @@ if search:
                     if item not in unique_list:
                         unique_list.append(item)
                
-                for i, row in enumerate(unique_list):
+                for i, list in enumerate(unique_list):
                     # Check if the row order is 1, 3, or 5
                     if (i + 1) % 2 != 1:                      
                         st.image(list)
