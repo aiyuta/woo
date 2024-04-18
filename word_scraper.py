@@ -321,31 +321,39 @@ if search:
         
         # Display the images
         col1, col2 = st.columns([2, 2])
-        with col1:             
-            page_img = requests.get(f"https://unsplash.com/s/photos/{keyword}")
-            soup = BeautifulSoup(page_img.content, 'lxml')
-            rows = soup.find_all("img", class_='ApbSI vkrMA')
-            rows =list(set(rows))
+        with col1:         
             try:
-                for i, row in enumerate(rows):
+                page_img = requests.get(f"https://unsplash.com/s/photos/{keyword}")
+                soup = BeautifulSoup(page_img.content, 'lxml')
+                rows = soup.find_all("img", class_='ApbSI vkrMA')
+                rows =list(set(rows))
+                src_list = [row["src"] for row in rows]
+                unique_list = []
+                for item in src_list:
+                    if item not in unique_list:
+                        unique_list.append(item)           
+            
+                for i, row in enumerate(unique_list):
                     # Check if the row order is 1, 3, or 5
-                    if (i + 1) % 2 != 0:
-                        list = row["src"]
-                        
+                    if (i + 1) % 2 != 0:                       
                         st.image(list)
             except:
                 pass
-        with col2:        
-            page_img = requests.get(f"https://unsplash.com/s/photos/{keyword}")
-            soup = BeautifulSoup(page_img.content, 'lxml')
-            rows = soup.find_all("img", class_='ApbSI vkrMA')
-            
+        with col2:      
             try:
-                for i, row in enumerate(rows):
+                page_img = requests.get(f"https://unsplash.com/s/photos/{keyword}")
+                soup = BeautifulSoup(page_img.content, 'lxml')
+                rows = soup.find_all("img", class_='ApbSI vkrMA')
+                rows =list(set(rows))
+                src_list = [row["src"] for row in rows]
+                unique_list = []
+                for item in src_list:
+                    if item not in unique_list:
+                        unique_list.append(item)
+               
+                for i, row in enumerate(unique_list):
                     # Check if the row order is 1, 3, or 5
-                    if (i + 1) % 2 != 1:
-                        list = row["src"]
-                        
+                    if (i + 1) % 2 != 1:                      
                         st.image(list)
             except:
                 pass
