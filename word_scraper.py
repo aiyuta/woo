@@ -23,7 +23,7 @@ def gemini(input):
     
 def groq(input):
     client = Groq(
-    api_key='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',
+    api_key=st.text_input("qroq Key:", value=default_text),
 )
 
     chat_completion = client.chat.completions.create(
