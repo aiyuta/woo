@@ -248,7 +248,7 @@ with col_del:
 with col_mem:
     memorize_button = st.button("memorize")
     try:
-        res = groq("help me memorize the word:" + keyword)
+        res = groq("help me memorize the word:" + keyword,,input_key)
     except:
         pass
 if memorize_button:
