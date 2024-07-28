@@ -326,7 +326,7 @@ if search:
             try:
                 page_img = requests.get(f"https://unsplash.com/s/photos/{keyword}")
                 soup = BeautifulSoup(page_img.content, 'lxml')
-                rows = soup.find_all("img", class_='ApbSI vkrMA')
+                rows = soup.find_all("img", class_='I7OuT DVW3V L1BOa')    #  edit the class based on the html
                 
                 src_list = [row["src"] for row in rows]
                 unique_list = []
