@@ -33,7 +33,7 @@ def groq(input,input_key ):
                 "content": input,
             }
         ],
-        model="Llama3-70b-8192",
+        model="llama-3.1-70b-versatile",
     )
     #mixtral-8x7b-32768
     return chat_completion.choices[0].message.content
