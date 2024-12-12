@@ -13,7 +13,7 @@ import os
 from groq import Groq
 
 @st.cache_data(show_spinner=False)
-def gemini(input，input_key):
+def gemini(input,input_key):
 
     genai.configure(api_key=input_key)
     model = genai.GenerativeModel('gemini-1.5-flash')
