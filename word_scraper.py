@@ -16,7 +16,7 @@ from groq import Groq
 def gemini(input,input_key):
 
     genai.configure(api_key=input_key)
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    model = genai.GenerativeModel('gemini-2.0-flash-exp')
     response = model.generate_content(input)
     
     return response.text
