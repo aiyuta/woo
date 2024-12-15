@@ -99,7 +99,7 @@ def deepseek(prompts):
     client = OpenAI(api_key = 'cccf51d6-7bf1-4a9d-84fd-ddc308c7e049', base_url="https://api.sambanova.ai/v1")
 
     response = client.chat.completions.create(
-        model="deepseek-chat",
+        model="Meta-Llama-3.1-8B-Instruct",
         messages=[
             {"role": "system", "content": "You are a helpful assistant"},
             {"role": "user", "content":prompts},
