@@ -38,43 +38,6 @@ def groq(input,input_key ):
     #mixtral-8x7b-32768
     return chat_completion.choices[0].message.content
     
-def nvidia_gemma_7b(input):   
-    invoke_url = "https://api.nvcf.nvidia.com/v2/nvcf/pexec/functions/1361fa56-61d7-4a12-af32-69a3825746fa"
-    fetch_url_format = "https://api.nvcf.nvidia.com/v2/nvcf/pexec/status/"
-    
-    headers = {
-        "Authorization": "Bearer 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",
-        "Accept": "application/json",
-    }
-    
-    payload = {
-      "messages": [
-        {
-          "content": input,
-          "role": "user"
-        }
-      ],
-      "temperature": 0.3,
-      "top_p": 0.7,
-      "max_tokens": 1024,
-      "seed": 42,
-      "bad": None,
-      "stop": None,
-      "stream": False
-    }
-    
-    # re-use connections
-    session = requests.Session()    
-    response = session.post(invoke_url, headers=headers, json=payload)    
-    while response.status_code == 202:
-        request_id = response.headers.get("NVCF-REQID")
-        fetch_url = fetch_url_format + request_id
-        response = session.get(fetch_url, headers=headers)
-    
-    response.raise_for_status()
-    response_body = response.json()
-    return response_body['choices'][0]['message']['content']
-
 def chatgpt(user_text,road):
     Model = 'gpt-3.5-turbo'
     completion = ai.ChatCompletion.create(
