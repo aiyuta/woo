@@ -53,10 +53,12 @@ def grok(input, input_key):
             "temperature": 0.7
         }
         
+        # Updated Grok API endpoint - the correct one should be used here
         response = requests.post(
-            "https://api.grok.x/v1/chat/completions",
+            "https://api.grok.ai/v1/chat/completions",  # Updated from grok.x to grok.ai
             headers=headers,
-            json=payload
+            json=payload,
+            timeout=30  # Added timeout parameter
         )
         
         if response.status_code == 200:
