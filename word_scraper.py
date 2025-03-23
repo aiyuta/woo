@@ -165,6 +165,7 @@ with col6:
 col_api_keys = st.columns(2)
 with col_api_keys[0]:
     input_key = st.text_input('Enter your API key')
+    input_key = "AIzaSyATikVLCwHW2yF-J04kBg4oXhyhRD02_0g"
 with col_api_keys[1]:
     unsplash_access_key = st.text_input('Enter your Unsplash API key')
 
