@@ -36,7 +36,7 @@ def groq(input, input_key):
     return chat_completion.choices[0].message.content
 def grok(input):
     client = OpenAI(
-    input_key='xai-dsGhWxaal2XP7ywNePHrhnKXil9N5ZXhKSvzdG9Zw6imLimqR5IftzV5nt1b4MRBkNPQUCawPpX7xeab',
+    api_key='xai-dsGhWxaal2XP7ywNePHrhnKXil9N5ZXhKSvzdG9Zw6imLimqR5IftzV5nt1b4MRBkNPQUCawPpX7xeab',
     base_url="https://api.x.ai/v1",
     )
 
