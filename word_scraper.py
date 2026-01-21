@@ -14,7 +14,7 @@ from openai import OpenAI
 @st.cache_data(show_spinner=False)
 def gemini(input, input_key):
     genai.configure(api_key=input_key)
-    model = genai.GenerativeModel('gemini-2.0-flash-exp')
+    model = genai.GenerativeModel('gemini-2.5-flash-lite')
     response = model.generate_content(input)
     
     return response.text
